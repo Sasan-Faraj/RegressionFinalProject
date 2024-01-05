@@ -28,10 +28,8 @@ import matplotlib.pyplot as plt
 ```python
 #read in data
 data= pd.read_excel('./Data/CommandersSalaryInfo.xlsx',sheet_name='Sheet1')
-data
+display(data)
 ```
-
-
 
 
 <div>
@@ -238,7 +236,6 @@ data
 </div>
 
 
-
 The dataframe above demonstrates that an Excel to Python pipepline is not always smooth. Especially in a business setting where data scientists are asked to look at cohorts of unrelated Excel spreadsheets, it is important to identify rows or columns that need to be dropped.
 
 
@@ -249,10 +246,8 @@ data = data.iloc[:67]
 
 
 ```python
-data
+display(data)
 ```
-
-
 
 
 <div>
@@ -448,7 +443,6 @@ data
 
 
 
-
 ```python
 sns.violinplot(data, y='Contract Amount',x='Drafted',cut=0,fill=False,inner='quart')
 plt.ticklabel_format(style='plain', axis='y',useOffset=False)
@@ -524,7 +518,7 @@ OneOLSRun(X,y)
     Model:                            OLS   Adj. R-squared:                  0.370
     Method:                 Least Squares   F-statistic:                     5.848
     Date:                Fri, 05 Jan 2024   Prob (F-statistic):           1.78e-05
-    Time:                        17:57:31   Log-Likelihood:                -1190.1
+    Time:                        18:14:30   Log-Likelihood:                -1190.1
     No. Observations:                  67   AIC:                             2398.
     Df Residuals:                      58   BIC:                             2418.
     Df Model:                           8                                         
@@ -584,10 +578,8 @@ X = data[['Age', 'Contract Years', 'Draft Round Adjusted', 'Drafted',
 y= data['Contract Amount']
 Scaled_X = Scale(data,['Age', 'Contract Years', 'Draft Round Adjusted', 'Years of Experience','Draft Pick'],
                 ['Drafted','Offense','Defense ', 'QB'])
-Scaled_X.head(2)
+display(Scaled_X.head(2))
 ```
-
-
 
 
 <div>
@@ -649,16 +641,13 @@ Scaled_X.head(2)
 </div>
 
 
-
 We might also be missing information from interactions, so I placed interactions within the dataframe.
 
 
 ```python
 Int_Scaled_X = CreateInteractions(Scaled_X)
-Int_Scaled_X.head(2)
+display(Int_Scaled_X.head(2))
 ```
-
-
 
 
 <div>
@@ -758,7 +747,6 @@ Int_Scaled_X.head(2)
 
 
 
-
 ```python
 y = np.log(data['Contract Amount'])
 ```
@@ -774,7 +762,7 @@ OneOLSRun(Int_Scaled_X,y)
     Model:                            OLS   Adj. R-squared:                  0.751
     Method:                 Least Squares   F-statistic:                     7.635
     Date:                Fri, 05 Jan 2024   Prob (F-statistic):           1.71e-08
-    Time:                        17:57:32   Log-Likelihood:                -37.802
+    Time:                        18:14:31   Log-Likelihood:                -37.802
     No. Observations:                  67   AIC:                             137.6
     Df Residuals:                      36   BIC:                             206.0
     Df Model:                          30                                         
@@ -891,7 +879,7 @@ OneOLSRun(Int_Scaled_X[['Contract Years Standardized',
     Model:                            OLS   Adj. R-squared:                  0.725
     Method:                 Least Squares   F-statistic:                     44.47
     Date:                Fri, 05 Jan 2024   Prob (F-statistic):           1.46e-17
-    Time:                        17:57:33   Log-Likelihood:                -59.352
+    Time:                        18:14:32   Log-Likelihood:                -59.352
     No. Observations:                  67   AIC:                             128.7
     Df Residuals:                      62   BIC:                             139.7
     Df Model:                           4                                         
@@ -939,7 +927,7 @@ OneOLSRun(Int_Scaled_X[['Contract Years Standardized',
     Model:                            OLS   Adj. R-squared:                  0.724
     Method:                 Least Squares   F-statistic:                     35.71
     Date:                Fri, 05 Jan 2024   Prob (F-statistic):           6.70e-17
-    Time:                        17:57:33   Log-Likelihood:                -58.856
+    Time:                        18:14:32   Log-Likelihood:                -58.856
     No. Observations:                  67   AIC:                             129.7
     Df Residuals:                      61   BIC:                             142.9
     Df Model:                           5                                         
