@@ -86,9 +86,9 @@ plt.show()
     
 
 
-The above plots are an important one. They tells us that there is a substantial difference in range within the total salaries of players that were drafted versus players that were not. Though there is a range difference between offense and non-offensive players (special team players included), that difference appears to be less than the draft status difference.
+The above plots are important ones. They tell us that there is a substantial difference in range within the total contract amounts of players that were drafted versus players that were not. Though there is a range difference between offensive and non-offensive players (special team players included), that difference appears to be less than the draft status difference.
 
-After looking into the data, it is clear that the top payed players include Jonathen Allen, Darron Payne, and Terry Mclaurin. Specifically, the Commanders are paying certain defensive linemen and wide recievers more than other notable positions such as quarter backs which usually seem like they would be the highest payed player. This makes sense given the Commanders' current quarterback is still on his rookie contract. 
+After looking into the data, it is clear that the top payed players include Jonathen Allen, Darron Payne, and Terry Mclaurin. Specifically, the Commanders are paying certain defensive linemen and wide recievers more than other notable positions such as quarterbacks which usually seem like they would be the highest payed player. This makes sense given the Commanders' current starting quarterback is still on his rookie contract. 
 
 Note, the lines within the plot demonstrate the 25th, 50th, and 75th percentiles. This indicates that the vast majority of players of total contract amounts of less than $20,000,000 and that there are magnitudle differences in the y's. Withouth going too fast, the magnitude differences in the contract amounts indicates to me that there may need to be a y-transformation. 
 
