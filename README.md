@@ -10,6 +10,8 @@ Without going into the weeds too much in the analysis and just copy over my whol
 
 It is beneficial to have this sort of work automated in Python because linear regressions allow for easily explainable variable impacts. There is a less of a black box since it is easier to see that as one variable increases, the other decreases. Though a linear regression isn't for every problem, with proper attention to details, it can be adapted to many of them.
 
+The code for those functions can be located here: ![ipynb](RegressionFunctions.ipynb)
+
 ## Looking at the data
 I obtained my data from spotrac.com which contains copius amounts of sports related data.
 - URL: https://www.spotrac.com/nfl/washington-commanders/contracts/
