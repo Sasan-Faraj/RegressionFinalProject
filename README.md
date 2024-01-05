@@ -236,7 +236,7 @@ display(data)
 </div>
 
 
-The dataframe above demonstrates that an Excel to Python pipepline is not always smooth. Especially in a business setting where data scientists are asked to look at cohorts of unrelated Excel spreadsheets, it is important to identify rows or columns that need to be dropped.
+The dataframe above demonstrates that an Excel to Python pipepline is not always smooth. Especially in a business setting where data scientists are asked to look at cohorts of unrelated Excel spreadsheets, it is important to identify rows that need to be dropped.
 
 
 ```python
@@ -518,7 +518,7 @@ OneOLSRun(X,y)
     Model:                            OLS   Adj. R-squared:                  0.370
     Method:                 Least Squares   F-statistic:                     5.848
     Date:                Fri, 05 Jan 2024   Prob (F-statistic):           1.78e-05
-    Time:                        18:14:30   Log-Likelihood:                -1190.1
+    Time:                        18:19:25   Log-Likelihood:                -1190.1
     No. Observations:                  67   AIC:                             2398.
     Df Residuals:                      58   BIC:                             2418.
     Df Model:                           8                                         
@@ -646,104 +646,45 @@ We might also be missing information from interactions, so I placed interactions
 
 ```python
 Int_Scaled_X = CreateInteractions(Scaled_X)
-display(Int_Scaled_X.head(2))
+Int_Scaled_X.columns
 ```
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age Standardized</th>
-      <th>Contract Years Standardized</th>
-      <th>Draft Round Adjusted Standardized</th>
-      <th>Years of Experience Standardized</th>
-      <th>Draft Pick Standardized</th>
-      <th>Drafted</th>
-      <th>Offense</th>
-      <th>Defense</th>
-      <th>QB</th>
-      <th>Age Standardized*Contract Years Standardized</th>
-      <th>...</th>
-      <th>Draft Pick Standardized*Drafted</th>
-      <th>Draft Pick Standardized*Offense</th>
-      <th>Draft Pick Standardized*Defense</th>
-      <th>Draft Pick Standardized*QB</th>
-      <th>Drafted*Offense</th>
-      <th>Drafted*Defense</th>
-      <th>Drafted*QB</th>
-      <th>Offense*Defense</th>
-      <th>Offense*QB</th>
-      <th>Defense *QB</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>-0.04931</td>
-      <td>0.855329</td>
-      <td>-1.737434</td>
-      <td>0.826837</td>
-      <td>-1.747354</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>-0.042176</td>
-      <td>...</td>
-      <td>-1.747354</td>
-      <td>-0.0</td>
-      <td>-1.747354</td>
-      <td>-0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.68486</td>
-      <td>0.855329</td>
-      <td>-1.737434</td>
-      <td>1.186565</td>
-      <td>-1.700749</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.585781</td>
-      <td>...</td>
-      <td>-1.700749</td>
-      <td>-0.0</td>
-      <td>-1.700749</td>
-      <td>-0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>2 rows × 45 columns</p>
-</div>
+    Index(['Age Standardized', 'Contract Years Standardized',
+           'Draft Round Adjusted Standardized', 'Years of Experience Standardized',
+           'Draft Pick Standardized', 'Drafted', 'Offense', 'Defense ', 'QB',
+           'Age Standardized*Contract Years Standardized',
+           'Age Standardized*Draft Round Adjusted Standardized',
+           'Age Standardized*Years of Experience Standardized',
+           'Age Standardized*Draft Pick Standardized', 'Age Standardized*Drafted',
+           'Age Standardized*Offense', 'Age Standardized*Defense ',
+           'Age Standardized*QB',
+           'Contract Years Standardized*Draft Round Adjusted Standardized',
+           'Contract Years Standardized*Years of Experience Standardized',
+           'Contract Years Standardized*Draft Pick Standardized',
+           'Contract Years Standardized*Drafted',
+           'Contract Years Standardized*Offense',
+           'Contract Years Standardized*Defense ',
+           'Contract Years Standardized*QB',
+           'Draft Round Adjusted Standardized*Years of Experience Standardized',
+           'Draft Round Adjusted Standardized*Draft Pick Standardized',
+           'Draft Round Adjusted Standardized*Drafted',
+           'Draft Round Adjusted Standardized*Offense',
+           'Draft Round Adjusted Standardized*Defense ',
+           'Draft Round Adjusted Standardized*QB',
+           'Years of Experience Standardized*Draft Pick Standardized',
+           'Years of Experience Standardized*Drafted',
+           'Years of Experience Standardized*Offense',
+           'Years of Experience Standardized*Defense ',
+           'Years of Experience Standardized*QB',
+           'Draft Pick Standardized*Drafted', 'Draft Pick Standardized*Offense',
+           'Draft Pick Standardized*Defense ', 'Draft Pick Standardized*QB',
+           'Drafted*Offense', 'Drafted*Defense ', 'Drafted*QB', 'Offense*Defense ',
+           'Offense*QB', 'Defense *QB'],
+          dtype='object')
+
 
 
 
@@ -762,7 +703,7 @@ OneOLSRun(Int_Scaled_X,y)
     Model:                            OLS   Adj. R-squared:                  0.751
     Method:                 Least Squares   F-statistic:                     7.635
     Date:                Fri, 05 Jan 2024   Prob (F-statistic):           1.71e-08
-    Time:                        18:14:31   Log-Likelihood:                -37.802
+    Time:                        18:19:26   Log-Likelihood:                -37.802
     No. Observations:                  67   AIC:                             137.6
     Df Residuals:                      36   BIC:                             206.0
     Df Model:                          30                                         
@@ -879,7 +820,7 @@ OneOLSRun(Int_Scaled_X[['Contract Years Standardized',
     Model:                            OLS   Adj. R-squared:                  0.725
     Method:                 Least Squares   F-statistic:                     44.47
     Date:                Fri, 05 Jan 2024   Prob (F-statistic):           1.46e-17
-    Time:                        18:14:32   Log-Likelihood:                -59.352
+    Time:                        18:19:27   Log-Likelihood:                -59.352
     No. Observations:                  67   AIC:                             128.7
     Df Residuals:                      62   BIC:                             139.7
     Df Model:                           4                                         
@@ -927,7 +868,7 @@ OneOLSRun(Int_Scaled_X[['Contract Years Standardized',
     Model:                            OLS   Adj. R-squared:                  0.724
     Method:                 Least Squares   F-statistic:                     35.71
     Date:                Fri, 05 Jan 2024   Prob (F-statistic):           6.70e-17
-    Time:                        18:14:32   Log-Likelihood:                -58.856
+    Time:                        18:19:27   Log-Likelihood:                -58.856
     No. Observations:                  67   AIC:                             129.7
     Df Residuals:                      61   BIC:                             142.9
     Df Model:                           5                                         
