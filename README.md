@@ -4,7 +4,7 @@
     
 As a part of my graduate course work, I took the class 'Regression' which takes a deep dive into the theoretical frame work of ordinary least squares, a foundation for what many people think of as a linear regression. The final project of this class was to perform a regression analysis on data found externally. I decided to focus on analyzing factors that influence the total contract amount of the active roster within the Commanders from the starting season of 2023. 
 
-For the class, I performed the project mainly in Minitab, a commericial statistical software. However, I wanted to translate the results of the project into python, demonstrating how to perform OLS analysis through automated python code. 
+For the class, I performed the project mainly in Minitab, a commericial statistical software. However, I wanted to translate the results of the project into Python, demonstrating how to perform OLS analysis through automated Python code. 
 
 Without going into the weeds too much in the analysis and just copy over my whole project, I will focus on highlights within the work, and at the end, I will describe the functionality of my different functions. For the python portion, I created functions that scales your continuous features, creates interactions between variables, performs one off OLS regression with tests for residual normality and homoskedacisty, and a forward stepwise regression. 
 
