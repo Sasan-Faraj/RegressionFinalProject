@@ -457,7 +457,7 @@ OneOLSRun(Int_Scaled_X[['Contract Years Standardized',
 
 
 ### Justification
-It is clear that my final model is not necessarily my best model when fit to training data. I say this because my final model as a slightly higher AIC/BIC and conditional number. However, I emphasize the slight increase AIC/BIC. My goal is to have an overall simplistic model, and the interaction between draft status and draft round adds complication. Likewise, not including their first order terms goes against heirachy, but including them, because one is a categorical variable, does not work with the interaction, so I opted to rely on the first order terms. 
+It is clear that my final model is not necessarily my best model when fit to training data. I say this because my final model has a slightly higher AIC/BIC and conditional number. However, I emphasize the slight increase AIC/BIC. My goal is to have an overall simplistic model, and the interaction between draft status and draft round adds complication. Likewise, not including their first order terms goes against heirachy, but including them, because one is a categorical variable, does not work with the interaction, so I opted to rely on the first order terms. 
 
 The increased conditional number makes sense since a drafted player will have a lower draft round pick than an undrafted player which I have designed to have the highest round. I did not apply hierachy to age because that increased the conditional number too much. 
 
